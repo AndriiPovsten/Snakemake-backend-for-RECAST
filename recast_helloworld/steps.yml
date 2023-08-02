@@ -1,0 +1,19 @@
+#This is the yadage steps hello_world part but on Snakemake
+rule all:
+    input:
+        "results/helloworld_output.txt"
+
+rule hello_world:
+    output:
+        "results/helloworld_output.txt"
+    params:
+        name = "YourName",
+        outputfile = "results/hello_world.txt"
+    run:
+        shell(
+            "echo Hello my Name is {params.name} | tee {params.outputfile}"
+        )
+    container_img:
+        "busybox"
+    container_:
+        "busybox:1.33"
