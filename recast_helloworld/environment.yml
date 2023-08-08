@@ -1,0 +1,13 @@
+name: Snakemake-example-hello-world
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - bioconda::snakemake=7.25.0
+  - flake8
+  - pip
+  - pytest
+  - pandas
+  - samtools
+  - matplotlib
+ 
