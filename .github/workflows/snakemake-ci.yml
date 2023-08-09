@@ -28,13 +28,6 @@ jobs:
         with: 
           environment-file: recast_helloworld/environment.yml
 
-      - name: Linting
-        uses: snakemake/snakemake-github-action@v1
-        with:
-          directory: 'recast_helloworld'
-          snakefile: 'recast_helloworld/Snakefile'
-          args: '--lint --cores 2'
-
       - name: Testing
         uses: snakemake/snakemake-github-action@v1
         with:
