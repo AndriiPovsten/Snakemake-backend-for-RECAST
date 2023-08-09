@@ -2,24 +2,23 @@ name: Snakemake CI
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
   pull_request:
-    branches:
-      - master
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+defaults: 
+  run:
+    shell: bash -l {0}
 
 jobs:
   build-linux:
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 5
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.10'
 
       - name: Clone repository
         uses: actions/checkout@v3    
@@ -27,22 +26,11 @@ jobs:
       - name: Install micromamba and create environment
         uses: mamba-org/setup-micromamba@v1
         with: 
-          environment-file: environment.yml
+          environment-file: recast_helloworld/environment.yml
 
-      - name: Create an environment 
-        run: |
-          conda env create -f environment.yml
-          conda activate Snakemake-example-hello-world
+      - name: List installed environment dependencies 
+        run: | 
           micromamba list
-
-      - name: Lint with flake8
-        run: |
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-      - name: Test with pytest
-        run: |
-          pytest
 
       - name: Linting
         uses: snakemake/snakemake-github-action@v1
@@ -62,4 +50,3 @@ jobs:
         with:
           snakefile: 'workflow/Snakefile'
           task: 'containerize'
-
