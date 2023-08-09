@@ -40,4 +40,5 @@ jobs:
         with:
           snakefile: 'recast_helloworld/Snakefile'
           task: 'containerize'
+          directory: 'recast_helloworld'
 
