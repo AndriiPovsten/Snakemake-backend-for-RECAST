@@ -49,7 +49,7 @@ jobs:
           path: .snakemake/log
 
       - name: Upload a Dockerfile 
-        uses: actions/upload-artifactv@3
+        uses: actions/upload-artifact@v3
         with:
           name: Dockerfile
           path: recast_helloworld/Dockerfile
