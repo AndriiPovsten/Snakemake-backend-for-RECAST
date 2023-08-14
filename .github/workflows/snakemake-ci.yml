@@ -46,7 +46,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: snakemake-log
-          path: .snakemake/log/
+          path: recast_helloworld/.snakemake/log/
+
       - name: Upload a Dockerfile 
         uses: actions/upload-artifact@v3
         with:
