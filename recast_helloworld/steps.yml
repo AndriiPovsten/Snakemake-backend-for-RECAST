@@ -13,7 +13,5 @@ rule hello_world:
         shell(
             "echo Hello my Name is {params.name} | tee {params.outputfile}"
         )
-    container_img:
-        "busybox"
-    container_:
+    container:
         "busybox:1.33"
