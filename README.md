@@ -2,13 +2,13 @@
 This is a small "Hello World!" example which will give you a brief understanding of [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Conda](https://docs.conda.io/en/latest/) usage.
 
 For running this Hello World example you firstly need to copy the git repository:
-<pre>
 ```
 $ git clone https://github.com/AndriiPovsten/Snakemake-backend-for-RECAST.git
+```
 and switch to the recast_helloworld directory
 ``` 
 $ cd recast_helloworld/
-```
+
 $  conda env create -n Snakemake-example-hello-world -f environment.yml
 ```
 Then, you can activate your conda environment via:
@@ -32,5 +32,4 @@ Create a new environment and activate it:
 ``` 
 (base) mambauser@b34a3dfcc306:/tmp$ micromamba create --yes --file /work/environment.yml
 (base) mambauser@b34a3dfcc306:/tmp$ micromamba activate Snakemake-example-hello-world
-</pre>
 ```
