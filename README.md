@@ -5,15 +5,14 @@ For running this Hello World example you firstly need to copy the git repository
 <pre>
 ```
 $ git clone https://github.com/AndriiPovsten/Snakemake-backend-for-RECAST.git
-```
 and switch to the recast_helloworld directory
 ``` 
 $ cd recast_helloworld/
-
+```
 $  conda env create -n Snakemake-example-hello-world -f environment.yml
 ```
 Then, you can activate your conda environment via:
-``` bash
+```
 $ conda activate Snakemake-example-hello-world
 ```
 Now, you can execute the Snakemake workflow:
