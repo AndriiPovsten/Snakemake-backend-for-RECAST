@@ -26,6 +26,7 @@ Alternitavely you can specify the directory and Snakefile explicitly:
 $ snakemake --directory recast_helloworld/ --snakefile recast_helloworld/Snakefile --cores 1 --use-conda --conda-cleanup-pkgs cache
 ```
 If you prefer to run this workflow within a Docker container you can follow this steps:
+<br>
 Creating a Docker image using the 'mambaorg/micromamba' image
 ``` 
 $ docker run --rm -ti -v $PWD:/work:ro mambaorg/micromamba:1.4.9-bullseye-slim 
