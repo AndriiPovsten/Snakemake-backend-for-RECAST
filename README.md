@@ -9,7 +9,7 @@ and switch to the recast_helloworld directory
 ``` 
 $ cd recast_helloworld/
 ```
-After you need to create a conda virtual environment from the environment.yml file:
+After you need to create a conda virtual environment from the `environment.yml` file:
 ```
 $  conda env create -n Snakemake-example-hello-world -f environment.yml
 ```
