@@ -1,0 +1,14 @@
+name: Snakemake-reana-helloworld-example
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - bioconda::snakemake=7.25.0
+  - pip
+  - pytest
+  - pandas
+  - samtools
+  - matplotlib
+  - ruff
+  - pip:
+    - reana-client
