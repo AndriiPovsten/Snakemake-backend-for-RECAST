@@ -4,15 +4,14 @@ inputs:
   files:
     - data/input.txt
   directories:
-    - recast_helloworld
+    - reana_helloworld
   parameters:
-
-    input: data/input.txt
+    input: reana_helloworld/steps.yml
 
 workflow:
 
   type: snakemake
-  file: Snakefile
+  file: reana_helloword/Snakefile
 
 outputs:
   files:
