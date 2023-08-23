@@ -1,2 +1,5 @@
 recast_helloworld/GitHubAction_first_try
 recast_helloworld/Snakemake_action
+reana_helloworld/SnakefileRoot
+reana_helloworld/inputs.yaml
+reana_helloworld/reana-snakemakeRoot.yaml

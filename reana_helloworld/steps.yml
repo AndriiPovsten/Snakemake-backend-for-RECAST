@@ -13,4 +13,5 @@ rule hello_world:
             "echo 'Hello my Name is {params.name}' > {params.outputfile}"
         )
     container:
-         "docker://debian:bullseye-slim"   #specification of container images 
+         "docker://debian:bullseye-slim"   #specification of container image "docker://reanahub/reana-env-root6:6.18.04"
+         

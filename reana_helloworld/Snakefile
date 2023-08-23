@@ -1,4 +1,3 @@
-#This is the yadage workflow hello_world but in Snakemake:
 configfile: "steps.yml"
 
 rule all:
