@@ -1,0 +1,9 @@
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+all                   1              1              1
+output_results        1              1              1
+prepare_data          1              1              1
+run_example           1              1              1
+total                 4              1              1
+

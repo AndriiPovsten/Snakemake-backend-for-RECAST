@@ -2,7 +2,7 @@ name: Snakemake-reana-helloworld-example
 channels:
   - conda-forge
 dependencies:
-  - python=3.11
+  - python=3.10
   - bioconda::snakemake=7.25.0
   - pip
   - pytest
