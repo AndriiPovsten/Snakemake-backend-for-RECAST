@@ -1,31 +1,20 @@
-configfile: "steps.yml"
-
 rule all:
     input:
         "results/helloworld_output.txt"  #this is a final output 
 
-rule prepare_data:
-    output:
-        "data/input.txt"
-    log: "logs/run_example.log"
-    conda: "reana-environment.yml"
-    shell:
-        """
-        mkdir -p data                         
-        echo "Hello World!" > {output} 
-        """
 
 rule run_example:
     input:
-        "data/input.txt"
+        "data/input.yaml"
     output:
         "results/example_output.txt"
     log:  "logs/run_example.log"
     conda: "reana-environment.yml"
+    container: "docker://debian:bullseye-slim"
     shell:
         """
         mkdir -p results    
-        cat data/input.txt > results/example_output.txt 2> logs/run_example.log
+        cat data/input.yaml > results/example_output.txt
         """
 
 rule output_results:
@@ -36,13 +25,81 @@ rule output_results:
     log:  "logs/output_results.log"
     conda: 
         "reana-environment.yml"
+    container: "docker://debian:bullseye-slim"
     shell:
         """ 
-        cp results/example_output.txt results/helloworld_output.txt 2> logs/output_results.log
+        cp results/example_output.txt results/helloworld_output.txt 
 
         """
 
-include: "steps.yml"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#configfile: "input.yaml"
+
+#rule all:
+    #input:
+        #"results/helloworld_output.txt"  #this is a final output 
+
+#rule prepare_data:
+  #  output:
+  #      "data/input.txt"
+  #  log: "logs/run_example.log"
+  #  conda: "reana-environment.yml"
+  #  shell:
+   #     """
+  #      mkdir -p data                         
+  #      echo "Hello World!" > {output} 
+  #      """
+
+#rule run_example:
+   # input:
+    #    "data/input.txt"
+   #output:
+    #    "results/example_output.txt"
+   # log:  "logs/run_example.log"
+   # conda: "reana-environment.yml"
+   # shell:
+   #     """
+   #     mkdir -p results    
+  #      cat data/input.txt > results/example_output.txt 2> logs/run_example.log
+  #      """
+
+#rule output_results:
+ #   input:
+#        "results/example_output.txt"
+#    output:
+#        "results/helloworld_output.txt"
+#    log:  "logs/output_results.log"
+#    conda: 
+#        "reana-environment.yml"
+ #   shell:
+ #       """ 
+ #       cp results/example_output.txt results/helloworld_output.txt 2> logs/output_results.log
+#
+#        """
+#
+#include: "input.yaml"
 
 
  #cat {input} > {output} --log {log} {input} {output} cp {input} {output} --log {log} {input} {output} 

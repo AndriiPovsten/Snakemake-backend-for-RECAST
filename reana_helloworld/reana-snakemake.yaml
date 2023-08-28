@@ -4,11 +4,11 @@ inputs:
   files:
     - data/input.txt
     - Snakefile
-    - steps.yml
+    - data/input.yaml
   directories:
     - reana_helloworld
   parameters:
-    input: steps.yml
+    input: data/input.yaml
 
 workflow:
 
