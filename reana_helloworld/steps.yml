@@ -1,17 +1,14 @@
-rule all:
-    input:
-        "results/helloworld_output.txt"
-
 rule hello_world:
     output:
-        "results/helloworld_output.txt"
+        "results/helloworld_hello.txt"
     params:
-        name = "YourName",
+        name = "initial model",
         outputfile = "results/hello_world.txt"
-    run:
-        shell(
-            "echo 'Hello my Name is {params.name}' > {params.outputfile}"
-        )
+    log: "logs/run_example.log"
     container:
-         "docker://debian:bullseye-slim"   #specification of container image "docker://reanahub/reana-env-root6:6.18.04"
+         "docker://debian:bullseye-slim"
+    shell:
+         "echo 'Hello my Name is {params.name}' > {params.outputfile}"
+   # container:
+    #     "docker://debian:bullseye-slim"   #specification of container image "docker://reanahub/reana-env-root6:6.18.04"
          

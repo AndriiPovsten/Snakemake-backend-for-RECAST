@@ -7,10 +7,12 @@ rule all:
 rule prepare_data:
     output:
         "data/input.txt"
+    log: "logs/run_example.log"
+    conda: "reana-environment.yml"
     shell:
         """
         mkdir -p data                         
-        echo "Hello, World!" > {output} 
+        echo "Hello World!" > {output} 
         """
 
 rule run_example:
@@ -18,10 +20,12 @@ rule run_example:
         "data/input.txt"
     output:
         "results/example_output.txt"
+    log:  "logs/run_example.log"
+    conda: "reana-environment.yml"
     shell:
         """
         mkdir -p results    
-        cat {input} > {output} 
+        cat data/input.txt > results/example_output.txt 2> logs/run_example.log
         """
 
 rule output_results:
@@ -29,7 +33,17 @@ rule output_results:
         "results/example_output.txt"
     output:
         "results/helloworld_output.txt"
+    log:  "logs/output_results.log"
+    conda: 
+        "reana-environment.yml"
     shell:
         """ 
-        cp {input} {output}  
+        cp results/example_output.txt results/helloworld_output.txt 2> logs/output_results.log
+
         """
+
+include: "steps.yml"
+
+
+ #cat {input} > {output} --log {log} {input} {output} cp {input} {output} --log {log} {input} {output} 
+# echo "Hello World!" > {output}  --log {log} {input} {output}
