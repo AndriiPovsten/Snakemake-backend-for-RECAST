@@ -10,7 +10,7 @@ rule run_example:
         "results/example_output.txt"
     log:  "logs/run_example.log"
     conda: "reana-environment.yml"
-    container: "docker://debian:bullseye-slim"
+    container:  "docker://debian:bullseye-slim"
     shell:
         """
         mkdir -p results    
@@ -54,53 +54,3 @@ rule output_results:
 
 
 
-
-#configfile: "input.yaml"
-
-#rule all:
-    #input:
-        #"results/helloworld_output.txt"  #this is a final output 
-
-#rule prepare_data:
-  #  output:
-  #      "data/input.txt"
-  #  log: "logs/run_example.log"
-  #  conda: "reana-environment.yml"
-  #  shell:
-   #     """
-  #      mkdir -p data                         
-  #      echo "Hello World!" > {output} 
-  #      """
-
-#rule run_example:
-   # input:
-    #    "data/input.txt"
-   #output:
-    #    "results/example_output.txt"
-   # log:  "logs/run_example.log"
-   # conda: "reana-environment.yml"
-   # shell:
-   #     """
-   #     mkdir -p results    
-  #      cat data/input.txt > results/example_output.txt 2> logs/run_example.log
-  #      """
-
-#rule output_results:
- #   input:
-#        "results/example_output.txt"
-#    output:
-#        "results/helloworld_output.txt"
-#    log:  "logs/output_results.log"
-#    conda: 
-#        "reana-environment.yml"
- #   shell:
- #       """ 
- #       cp results/example_output.txt results/helloworld_output.txt 2> logs/output_results.log
-#
-#        """
-#
-#include: "input.yaml"
-
-
- #cat {input} > {output} --log {log} {input} {output} cp {input} {output} --log {log} {input} {output} 
-# echo "Hello World!" > {output}  --log {log} {input} {output}

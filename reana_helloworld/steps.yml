@@ -10,6 +10,3 @@ rule hello_world:
     container: "docker://debian:bullseye-slim"
     shell:
          "echo 'Hello my Name is {params.name}' > {params.outputfile}"
-   # container:
-    #     "docker://debian:bullseye-slim"   #specification of container image "docker://reanahub/reana-env-root6:6.18.04"
-         
