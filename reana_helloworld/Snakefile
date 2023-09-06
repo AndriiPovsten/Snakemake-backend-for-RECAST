@@ -1,19 +1,21 @@
 rule all:
     input:
-        "results/helloworld_output.txt"  #this is a final output 
-
+        "results/helloworld_output.txt"
 
 rule run_example:
     input:
         "data/input.yaml"
     output:
         "results/example_output.txt"
-    log:  "logs/run_example.log"
-    conda: "reana-environment.yml"
-    container:  "docker://debian:bullseye-slim"
+    log:
+        "logs/run_example_output.log"
+    conda:
+        "reana-environment.yml"
+    container:
+        "docker://debian:bullseye-slim"
     shell:
         """
-        mkdir -p results    
+        mkdir -p results
         cat data/input.yaml > results/example_output.txt
         """
 
@@ -22,14 +24,15 @@ rule output_results:
         "results/example_output.txt"
     output:
         "results/helloworld_output.txt"
-    log:  "logs/output_results.log"
-    conda: 
+    log:
+        "logs/output_results_logging.log"
+    conda:
         "reana-environment.yml"
-    container: "docker://debian:bullseye-slim"
+    container:
+        "docker://debian:bullseye-slim"
     shell:
         """ 
-        cp results/example_output.txt results/helloworld_output.txt 
-
+        cp results/example_output.txt results/helloworld_output.txt
         """
 
 

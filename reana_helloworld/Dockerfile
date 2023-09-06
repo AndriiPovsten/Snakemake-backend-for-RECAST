@@ -1,10 +1,11 @@
 FROM condaforge/mambaforge:latest
 LABEL io.github.snakemake.containerized="true"
-LABEL io.github.snakemake.conda_env_hash="a27eb1bd907da7d709dcbe093527f3ae2ce3ac8b4a9f4ec63cc1a34b4e1f4dc0"
-RUN mkdir -p /conda-envs/91337d203b301eff9917a563c6a59592
-COPY reana-environment.yml /conda-envs/91337d203b301eff9917a563c6a59592/environment.yaml
+#LABEL io.github.snakemake.conda_env_hash="a27eb1bd907da7d709dcbe093527f3ae2ce3ac8b4a9f4ec6"
+ARG conda_env_name=Snakemake-reana-helloworld-example
 
-# Step 2: Generate conda environments
+RUN mkdir -p /conda-envs/${conda_env_name}
+COPY reana-environment.yml /conda-envs/${conda_env_name}/environment.yaml
 
-RUN mamba env create --prefix /conda-envs/91337d203b301eff9917a563c6a59592 --file /conda-envs/91337d203b301eff9917a563c6a59592/environment.yaml && \
+
+RUN mamba env create --prefix /conda-envs/${conda_env_name} --file /conda-envs/${conda_env_name}/environment.yaml && \
     mamba clean --all -y

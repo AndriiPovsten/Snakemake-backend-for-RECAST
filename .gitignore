@@ -3,3 +3,4 @@ recast_helloworld/Snakemake_action
 reana_helloworld/SnakefileRoot
 reana_helloworld/inputs.yaml
 reana_helloworld/reana-snakemakeRoot.yaml
+reana_helloworld/README.md
