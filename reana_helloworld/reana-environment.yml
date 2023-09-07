@@ -10,5 +10,6 @@ dependencies:
   - samtools
   - matplotlib
   - ruff
+  - singularity
   - pip:
     - reana-client
