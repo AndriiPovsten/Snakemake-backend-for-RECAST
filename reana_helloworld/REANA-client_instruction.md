@@ -9,9 +9,9 @@ $ git clone https://github.com/AndriiPovsten/Snakemake-backend-for-RECAST.git
 and switch to the reana_helloworld directory
 ``` 
 $ cd reana_helloworld/
-
+```
 Also you need to create a conda virtual environment using a reana-environment.yml
-
+```
 $  conda env create -n Snakemake-reana-helloworld-example -f reana-environment.yml
 ```
 Then, you can activate your conda environment via:
@@ -24,7 +24,7 @@ And now you need to authorize to the REANA:
 $ export REANA_SERVER_URL=https://reana.cern.ch
 $ export REANA_ACCESS_TOKEN=YOUR_PERSONAL_TOKEN
 ```
-Firstly you need to validate the:
+Firstly, you need to validate the:
 ```
 $ reana-client validate -f reana-snakemake.yaml --environments --pull
 ```
@@ -40,7 +40,7 @@ And check the created files:
 ```
 $ reana-client ls -w snakemake-helloworld --filter name=results
 ```
-And visualise your workflow via:
+Finally, you can visualise your workflow via:
 ```
 $ reana-client download -w snakemake-helloworld 'report.html'
 ```
@@ -50,15 +50,15 @@ Firstly you need to create an image using a Dockerfile:
 ```
 $ docker build -t snakemake-reana .
 ```
-and than run it:
+Then, run it:
 ```
 $ docker run --it --rm snakemake-reana
 ```
-Our conda environment is located in the conda-envs you can check it via 'conda info --envs' 
+Our conda environment is located in the conda-envs you can check it via "conda info --envs" 
 ```
 $ cd conda-envs/
 ```
-and activate this conda environment:
+Finally, activate Snakemake-reana-hellworld-example conda environment:
 ```
 $ conda activate Snakemake-reana-helloworld-example
 ```
