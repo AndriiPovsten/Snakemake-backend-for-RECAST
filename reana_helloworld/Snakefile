@@ -34,26 +34,3 @@ rule output_results:
         """ 
         cp results/example_output.txt results/helloworld_output.txt
         """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
