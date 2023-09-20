@@ -54,3 +54,11 @@ jobs:
           name: Dockerfile
           path: Dockerfile
 
+      - name: Linting
+        uses: snakemake/snakemake-github-action@v1
+        with:
+          directory: 'recast_helloworld'
+          snakefile: 'reana_helloworld/Snakefile'
+          args: '--lint'
+
+
