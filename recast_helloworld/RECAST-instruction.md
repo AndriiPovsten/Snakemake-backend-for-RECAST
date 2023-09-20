@@ -9,7 +9,7 @@ and switch to the recast_helloworld directory
 ``` 
  cd recast_helloworld/
 
-  conda env create -n Snakemake-example-hello-world -f environment.yml
+ conda env create -n Snakemake-example-hello-world -f environment.yml
 ```
 Then, you can activate your conda environment via:
 ```
@@ -32,5 +32,4 @@ Create a new environment and activate it:
 ``` 
 (base) mambauser@b34a3dfcc306:/tmp$ micromamba create --yes --file /work/environment.yml
 (base) mambauser@b34a3dfcc306:/tmp$ micromamba activate Snakemake-example-hello-world
-</pre>
 ```
