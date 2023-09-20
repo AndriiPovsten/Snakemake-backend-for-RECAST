@@ -11,3 +11,4 @@ rule hello_world:
     container: "docker://debian:bullseye-slim"
     shell:
          "echo 'Hello my Name is {params.name}' > {params.outputfile}"
+
