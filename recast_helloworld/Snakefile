@@ -1,22 +1,23 @@
-#This is the yadage workflow hello_world but in Snakemake:
-configfile: "steps.yml"
-
 rule all:
     input:
-        "results/helloworld_output.txt"  #this is a final output 
+        "results/helloworld_output.txt"  #Final output 
 
 rule prepare_data:
     output:
         "data/input.txt"
+    conda:
+        "environment.yml"
     shell:
         """
         mkdir -p data                         
-        echo "Hello, World!" > {output} 
+        echo "Hello World!" > {output} 
         """
 
 rule run_example:
     input:
         "data/input.txt"
+    conda:
+        "environment.yml"
     output:
         "results/example_output.txt"
     shell:
@@ -30,6 +31,8 @@ rule output_results:
         "results/example_output.txt"
     output:
         "results/helloworld_output.txt"
+    conda:
+        "environment.yml"
     shell:
         """ 
         cp {input} {output}  
