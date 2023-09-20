@@ -4,5 +4,4 @@ We provide 2 options, one you can run locally, the other - using a REANA client.
 
 Instruction for running "Hello World" example locally you can find in the `recast_helloworld` directory in `RECAST-instructions.md` file.
 
-For running this example using REANA-client please have a look at `REANA-client_instruction.md` file in the `reana_helloworld` directory.
-
+To run this example with REANA-client please have a look at the file `REANA-client_instruction.md` in the directory `reana_helloworld`.
