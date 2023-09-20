@@ -1,0 +1,36 @@
+rule all:
+    input:
+        "results/helloworld_output.txt"
+
+rule run_example:
+    input:
+        "data/input.yaml"
+    output:
+        "results/example_output.txt"
+    log:
+        "logs/run_example_output.log"
+    conda:
+        "reana-environment.yml"
+    container:
+        "docker://debian:bullseye-slim"
+    shell:
+        """
+        mkdir -p results
+        cat data/input.yaml > results/example_output.txt
+        """
+
+rule output_results:
+    input:
+        "results/example_output.txt"
+    output:
+        "results/helloworld_output.txt"
+    log:
+        "logs/output_results_logging.log"
+    conda:
+        "reana-environment.yml"
+    container:
+        "docker://debian:bullseye-slim"
+    shell:
+        """ 
+        cp results/example_output.txt results/helloworld_output.txt
+        """

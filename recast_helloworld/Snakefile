@@ -3,7 +3,7 @@ configfile: "steps.yml"
 
 rule all:
     input:
-        "results/helloworld_output.txt"
+        "results/helloworld_output.txt"  #this is a final output 
 
 rule prepare_data:
     output:
