@@ -1,3 +1,4 @@
+configfile: "steps.yml" 
 rule all:
     input:
         "results/helloworld_output.txt"  #Final output 

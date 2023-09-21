@@ -1,11 +1,11 @@
-#This is the yadage steps hello_world part but on Snakemake
-rule hello_world:
+#This is the config file for Snakefile which uses the input file which was created by snakemake rules
+rule greeting_model:
     input: 
         "data/input.txt"
     output:  
-        "results/helloworld_hello.txt"
+        "results/hello_world.txt"
     params:
-        name = "initial model",
+        name = "standart model",
         outputfile = "results/hello_world.txt"
     log: "logs/run_example.log"
     container: "docker://debian:bullseye-slim"
