@@ -1,4 +1,4 @@
-#This is the config file for Snakefile which uses the input file which was created by snakemake rules
+#This is the config file for Snakefile which uses the input file which was created with Snakemake rule
 rule greeting_model:
     input: 
         "data/input.txt"
