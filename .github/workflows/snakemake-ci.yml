@@ -1,0 +1,64 @@
+name: Snakemake CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+defaults: 
+  run:
+    shell: bash -l {0}
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Clone repository
+        uses: actions/checkout@v3    
+
+      - name: Install micromamba and create environment
+        uses: mamba-org/setup-micromamba@v1
+        with: 
+          environment-file: recast_helloworld/environment.yml
+
+      - name: Testing
+        uses: snakemake/snakemake-github-action@v1
+        with:
+          directory: 'recast_helloworld'
+          snakefile: 'recast_helloworld/Snakefile'
+          args: '--cores 1 --use-conda --conda-cleanup-pkgs cache'
+
+      - name: Create container file
+        uses: snakemake/snakemake-github-action@v1
+        with:
+          snakefile: 'recast_helloworld/Snakefile'
+          task: 'containerize'
+          directory: 'recast_helloworld'
+
+      - name: Uploading a snakemake logs
+        uses: actions/upload-artifact@v3
+        with: 
+          name: snakemake-log
+          path: recast_helloworld/.snakemake/log/
+
+      - name: Upload a Dockerfile 
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dockerfile
+          path: Dockerfile
+
+      - name: Linting
+        uses: snakemake/snakemake-github-action@v1
+        with:
+          directory: 'recast_helloworld'
+          snakefile: 'reana_helloworld/Snakefile'
+          args: '--lint'
+
+
